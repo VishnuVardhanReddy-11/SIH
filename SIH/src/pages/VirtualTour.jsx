@@ -1,69 +1,86 @@
-import React from "react";
+"use client"
 
-const VirtualTour = () => {
+import { useState } from "react"
+
+
+export default function VirtualTourPage() {
+  const [userLocation, setUserLocation] = useState({
+    latitude: null,
+    longitude: null,
+  })
+
+  const handleLocationUpdate = (lat, lon) => {
+    setUserLocation({ latitude: lat, longitude: lon })
+  }
+
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen py-16 px-6 md:px-20">
-      {/* Page Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-emerald-700">
-          🏯 Virtual Monastery Tours
-        </h1>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          Step into the monasteries of Sikkim from anywhere in the world. Explore
-          360° panoramic views, sacred halls, ancient murals, and peaceful
-          courtyards with an immersive virtual tour experience.
-        </p>
-      </div>
-
-      {/* 360° Viewer Placeholder */}
-      <div className="flex justify-center">
-        <div className="w-full md:w-4/5 h-[500px] bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center text-gray-600 text-lg">
-          🔄 360° Virtual Tour Viewer Placeholder
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-b from-primary/5 to-background border-b">
+        <div className="container mx-auto px-4 py-12">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Mountain className="h-8 w-8 text-primary" />
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground text-balance">Sikkim Monasteries</h1>
+            </div>
+            <p className="text-lg text-muted-foreground mb-6 text-pretty">
+              Discover the spiritual heritage of Sikkim through its ancient monasteries. Find nearby sacred places,
+              learn about their history, and plan your spiritual journey.
+            </p>
+            <div className="flex items-center justify-center gap-2 text-sm text-primary">
+              <MapPin className="h-4 w-4" />
+              <span>Location-based discovery • Detailed information • Navigation included</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Featured Monasteries */}
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            name: "Rumtek Monastery",
-            desc: "Known as the Dharma Chakra Centre, one of the most important monasteries in Sikkim.",
-          },
-          {
-            name: "Pemayangtse Monastery",
-            desc: "A 17th-century monastery with intricate woodwork and ancient murals.",
-          },
-          {
-            name: "Tashiding Monastery",
-            desc: "Sacred site famous for its Bhumchu festival and spiritual significance.",
-          },
-        ].map((monastery, index) => (
-          <div
-            key={index}
-            className="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition"
-          >
-            <h2 className="text-xl font-semibold text-emerald-700">
-              {monastery.name}
-            </h2>
-            <p className="mt-2 text-gray-600">{monastery.desc}</p>
-            <button className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition">
-              Start Tour
-            </button>
-          </div>
-        ))}
-      </div>
+      <div className="container mx-auto px-4 py-8">
+        {/* Location Status */}
+        <LocationStatus onLocationUpdate={handleLocationUpdate} />
 
-      {/* Call to Action */}
-      <div className="text-center mt-20">
-        <h2 className="text-2xl font-bold text-gray-800">
-          Ready to explore Sikkim’s monasteries in 360°?
-        </h2>
-        <button className="mt-6 px-6 py-3 bg-emerald-600 text-white text-lg rounded-xl shadow hover:bg-emerald-700 transition">
-          Launch Full Virtual Experience
-        </button>
+        {/* Etiquette Guidelines */}
+        <MonasteryEtiquette />
+
+        {/* Monasteries Section */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground mb-2">
+                {userLocation.latitude && userLocation.longitude ? "Nearby Monasteries" : "Featured Monasteries"}
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                {userLocation.latitude && userLocation.longitude
+                  ? "Sorted by distance from your location"
+                  : "Enable location access to see distances and get personalized recommendations"}
+              </p>
+            </div>
+            <div className="text-right">
+              <div className="text-2xl font-bold text-primary">{monasteryData.length}</div>
+              <div className="text-xs text-muted-foreground">monasteries</div>
+            </div>
+          </div>
+
+          {/* Monastery Cards */}
+          <MonasteryList
+            monasteries={monasteryData}
+            userLatitude={userLocation.latitude}
+            userLongitude={userLocation.longitude}
+          />
+        </div>
+
+        {/* Footer Info */}
+        <Card className="mt-12">
+          <CardContent className="p-6 text-center">
+            <h3 className="font-semibold text-foreground mb-2">Planning Your Spiritual Journey</h3>
+            <p className="text-sm text-muted-foreground text-pretty">
+              Each monastery offers unique experiences and spiritual insights. Consider visiting during early morning
+              hours for the most peaceful atmosphere. Remember to respect local customs and the sacred nature of these
+              places.
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </div>
-  );
-};
-
-export default VirtualTour;
+  )
+}

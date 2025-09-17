@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-b from-indigo-50 via-white to-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center h-[80vh]" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1400&q=80')" }}>
+      <section className="relative bg-cover bg-center h-[80vh]" style={{ backgroundImage: "url('/cover.jpg')" }}>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center px-4">
             <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
