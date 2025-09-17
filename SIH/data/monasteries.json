@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Rumtek Monastery",
+    "location": "Rumtek, East Sikkim",
+    "latitude": 27.3389,
+    "longitude": 88.5583,
+    "timings": "6:00 AM - 6:00 PM",
+    "entryFee": "Free",
+    "highlights": [
+      "Seat of the 16th Karmapa",
+      "Golden Stupa with relics",
+      "Traditional Tibetan architecture",
+      "Monastery school and college",
+      "Annual Cham dance festival"
+    ],
+    "tips": [
+      "Photography inside main hall requires permission",
+      "Dress modestly and remove shoes before entering",
+      "Best visited during morning prayers (6-8 AM)",
+      "Carry water and snacks for the uphill walk"
+    ],
+    "description": "The largest monastery in Sikkim and the main seat of the Karma Kagyu lineage."
+  },
+  {
+    "name": "Enchey Monastery",
+    "location": "Gangtok, East Sikkim",
+    "latitude": 27.3314,
+    "longitude": 88.6138,
+    "timings": "5:00 AM - 7:00 PM",
+    "entryFee": "Free",
+    "highlights": [
+      "200-year-old monastery",
+      "Belongs to Nyingma order",
+      "Beautiful mountain views",
+      "Annual Cham dance in December",
+      "Sacred relics and statues"
+    ],
+    "tips": [
+      "Easy walk from Gangtok city center",
+      "Visit during sunset for best views",
+      "Respect the prayer times",
+      "Local guides available for history"
+    ],
+    "description": "A 200-year-old monastery offering panoramic views of Gangtok and surrounding mountains."
+  },
+  {
+    "name": "Pemayangtse Monastery",
+    "location": "Pelling, West Sikkim",
+    "latitude": 27.2951,
+    "longitude": 88.2158,
+    "timings": "7:00 AM - 5:00 PM",
+    "entryFee": "₹10 for Indians, ₹20 for foreigners",
+    "highlights": [
+      "Second oldest monastery in Sikkim",
+      "Nyingma sect headquarters",
+      "Seven-tiered wooden sculpture",
+      "Ancient manuscripts and artifacts",
+      "Views of Kanchenjunga range"
+    ],
+    "tips": [
+      "Combine with Pelling sightseeing",
+      "Photography allowed in courtyard only",
+      "Wear comfortable shoes for stairs",
+      "Visit the museum on upper floor"
+    ],
+    "description": "One of Sikkim's oldest and most important monasteries with stunning Himalayan views."
+  },
+  {
+    "name": "Tashiding Monastery",
+    "location": "Tashiding, West Sikkim",
+    "latitude": 27.3167,
+    "longitude": 88.2667,
+    "timings": "6:00 AM - 6:00 PM",
+    "entryFee": "Free",
+    "highlights": [
+      "Sacred Bumchu ceremony",
+      "Hilltop location with valley views",
+      "Ancient chortens and prayer flags",
+      "Nyingma tradition monastery",
+      "Spiritual significance for locals"
+    ],
+    "tips": [
+      "Visit during Bumchu festival (February/March)",
+      "Steep climb to reach the monastery",
+      "Carry water and wear good shoes",
+      "Respect the sacred water ceremony"
+    ],
+    "description": "A sacred hilltop monastery famous for its annual holy water ceremony."
+  },
+  {
+    "name": "Dubdi Monastery",
+    "location": "Yuksom, West Sikkim",
+    "latitude": 27.3667,
+    "longitude": 88.2167,
+    "timings": "6:00 AM - 5:00 PM",
+    "entryFee": "Free",
+    "highlights": [
+      "Oldest monastery in Sikkim (1701)",
+      "Founded by Lhatsun Chenpo",
+      "Historical significance",
+      "Peaceful forest setting",
+      "Traditional architecture"
+    ],
+    "tips": [
+      "45-minute trek from Yuksom",
+      "Start early to avoid afternoon heat",
+      "Carry trekking gear and water",
+      "Guide recommended for first visit"
+    ],
+    "description": "Sikkim's oldest monastery, accessible via a scenic trek through dense forests."
+  },
+  {
+    "name": "Phensang Monastery",
+    "location": "Kewzing, South Sikkim",
+    "latitude": 27.2833,
+    "longitude": 88.3167,
+    "timings": "6:00 AM - 6:00 PM",
+    "entryFee": "Free",
+    "highlights": [
+      "Kagyu sect monastery",
+      "Beautiful valley location",
+      "Traditional butter sculptures",
+      "Peaceful meditation halls",
+      "Local community involvement"
+    ],
+    "tips": [
+      "Less crowded than major monasteries",
+      "Good for meditation and reflection",
+      "Interact respectfully with monks",
+      "Photography with permission only"
+    ],
+    "description": "A serene monastery in South Sikkim known for its peaceful atmosphere and community involvement."
+  }
+]

@@ -16,22 +16,35 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-gray-700 font-semibold text-lg">
+        <nav className="hidden md:flex items-center space-x-8 text-gray-700 font-semibold text-lg">
           <Link to="/" className="hover:text-emerald-600">Home</Link>
           <Link to="/explore" className="hover:text-emerald-600">Explore</Link>
           <Link to="/virtual-tour" className="hover:text-emerald-600">Virtual Tour</Link>
           <Link to="/archive" className="hover:text-emerald-600">Archives</Link>
           <Link to="/events" className="hover:text-emerald-600">Events</Link>
           <Link to="/community" className="hover:text-emerald-600">Community</Link>
+
+          {/* Wallet Icon for Desktop */}
+          <Link to="/wallet" className="ml-4">
+            <img src="/wallet.png" alt="Wallet" className="h-10 w-10 object-cover" />
+          </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-700 focus:outline-none text-2xl"
-        >
-          {isOpen ? "✖" : "☰"}
-        </button>
+        {/* Mobile Menu + Wallet */}
+        <div className="flex items-center md:hidden space-x-4">
+          {/* Wallet Icon for Mobile */}
+          <Link to="/wallet">
+            <img src="wallet.png" alt="Wallet" className="h-10 w-10 object-cover" />
+          </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-gray-700 focus:outline-none text-2xl"
+          >
+            {isOpen ? "✖" : "☰"}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -39,7 +52,7 @@ const Header = () => {
         <nav className="md:hidden bg-white border-t border-gray-200 px-6 py-4 space-y-4 text-lg font-semibold">
           <Link to="/" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Home</Link>
           <Link to="/explore" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Explore</Link>
-          <Link to="/virtual-tour" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Virtual Tour</Link>
+<Link to="/virtual-tour" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Virtual Tour</Link>
           <Link to="/archive" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Archives</Link>
           <Link to="/events" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Events</Link>
           <Link to="/community" onClick={() => setIsOpen(false)} className="block hover:text-emerald-600">Community</Link>

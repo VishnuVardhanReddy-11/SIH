@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 const Home = () => {
   return (
     <div className="bg-gradient-to-b from-indigo-50 via-white to-white min-h-screen">
@@ -66,7 +65,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action - moved above reviews */}
       <section className="py-20 text-center bg-indigo-700 text-white">
         <h2 className="text-3xl md:text-4xl font-bold">Begin Your Journey Today</h2>
         <p className="mt-4 max-w-2xl mx-auto text-gray-200">
@@ -79,6 +78,83 @@ const Home = () => {
           Explore the Map
         </Link>
       </section>
+
+      {/* Reviews Section - Scrolling */}
+      {/* Reviews Section - Auto Scrolling with Monk Images */}
+<section className="py-16 bg-indigo-50 overflow-hidden relative">
+  <h2 className="text-3xl md:text-4xl font-bold text-indigo-700 text-center mb-12">
+    What Visitors Say
+  </h2>
+
+  <div className="relative w-full overflow-hidden">
+    <div
+      className="flex space-x-6 min-w-max"
+      style={{ animation: "marquee 30s linear infinite" }}
+    >
+      {[
+        {
+          text: "Amazing experience! Felt like I was really inside the monasteries.",
+          name: "Lama Tenzin",
+          img: "1.png",
+        },
+        {
+          text: "The virtual tours are breathtaking and highly immersive.",
+          name: "Lama Dalai",
+          img: "2.png",
+        },
+        {
+          text: "Loved exploring rare digital archives and cultural events online.",
+          name: "Lama Pema",
+          img: "3.png",
+        },
+        {
+          text: "A perfect blend of heritage and technology.",
+          name: "Yaswanth Reddy",
+          img: "4.jpg",
+        },
+        {
+          text: "The cultural insights were eye-opening and beautifully presented.",
+          name: "Narendra Modi",
+          img: "5.png",
+        },
+        // Repeat for smooth infinite scroll
+        {
+          text: "Amazing experience! Felt like I was really inside the monasteries.",
+          name: "Lama Tenzin",
+          img: "6.png",
+        },
+        {
+          text: "The virtual tours are breathtaking and highly immersive.",
+          name: "Lama Dorjee",
+          img: "7.jpg",
+        },
+      ].map((review, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 bg-white p-6 rounded-2xl shadow-lg min-w-[280px] md:min-w-[300px] text-center"
+        >
+          <img
+            src={review.img}
+            alt={review.name}
+            className="w-20 h-20 rounded-full mx-auto object-cover border-2 border-indigo-600"
+          />
+          <p className="mt-4 text-gray-700">{`"${review.text}"`}</p>
+          <p className="mt-4 font-semibold text-indigo-600">{review.name}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    {`
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    `}
+  </style>
+</section>
+
     </div>
   );
 };
