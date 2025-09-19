@@ -14,7 +14,7 @@ const SHOPS = [
 ];
 
 function getDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371e3;
+  const R = 6371e3; // Earth radius in meters
   const toRad = (d) => (d * Math.PI) / 180;
   const φ1 = toRad(lat1);
   const φ2 = toRad(lat2);
@@ -71,7 +71,7 @@ const WalletPage = () => {
 
       POIS.forEach((poi) => {
         const d = getDistance(latitude, longitude, poi.lat, poi.lon);
-        if (d <= 20 && !wallet.visitedPOIs.includes(poi.id)) {
+        if (d <= 15 && !wallet.visitedPOIs.includes(poi.id)) { // distance threshold reduced to 15 meters
           setWallet((prev) => ({
             points: prev.points + 10,
             visitedPOIs: [...prev.visitedPOIs, poi.id],
@@ -100,9 +100,11 @@ const WalletPage = () => {
           {message && (
             <div
               className={`mb-4 p-3 rounded ${
-                message.type === "success" ? "bg-green-100 text-green-800" :
-                message.type === "error" ? "bg-red-100 text-red-800" :
-                "bg-blue-100 text-blue-800"
+                message.type === "success"
+                  ? "bg-green-100 text-green-800"
+                  : message.type === "error"
+                  ? "bg-red-100 text-red-800"
+                  : "bg-blue-100 text-blue-800"
               }`}
             >
               {message.text}
@@ -132,9 +134,11 @@ const WalletPage = () => {
         {message && (
           <div
             className={`mb-4 p-3 rounded ${
-              message.type === "success" ? "bg-green-100 text-green-800" :
-              message.type === "error" ? "bg-red-100 text-red-800" :
-              "bg-blue-100 text-blue-800"
+              message.type === "success"
+                ? "bg-green-100 text-green-800"
+                : message.type === "error"
+                ? "bg-red-100 text-red-800"
+                : "bg-blue-100 text-blue-800"
             }`}
           >
             {message.text}
@@ -142,7 +146,17 @@ const WalletPage = () => {
         )}
 
         <h1 className="text-2xl font-bold text-indigo-700 mb-4">💰 Wallet for {activeUser}</h1>
-        <p className="mb-4 text-lg">✨ Points: <span className="font-bold">{wallet.points}</span></p>
+        <p className="mb-2 text-lg">✨ Points: <span className="font-bold">{wallet.points}</span></p>
+
+        {/* Display shop names with min points and discount */}
+        <p className="mb-2 text-lg font-semibold">🏬 Available Shops:</p>
+        <ul className="mb-4 list-disc list-inside text-gray-700">
+          {SHOPS.map((shop) => (
+            <li key={shop.id}>
+              {shop.name} — {shop.minPoints} points for {shop.discount}
+            </li>
+          ))}
+        </ul>
 
         <button
           onClick={checkLocation}

@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Community = () => {
+  const [showGuidelines, setShowGuidelines] = useState(false);
+  const [showLearnMore, setShowLearnMore] = useState(false);
+
+  const guidelines = [
+    "All uploads must respect copyright laws.",
+    "Ensure photos and artifacts are clearly labeled.",
+    "Avoid sharing sensitive or personal information.",
+    "Maintain accuracy in historical details.",
+    "Use proper language and avoid offensive content.",
+  ];
+
+  const learnMoreContent = [
+    "Discover the history and architecture of Sikkim’s monasteries.",
+    "Learn about the monks’ daily lives and rituals.",
+    "Understand cultural significance and festivals.",
+    "Explore research and documentation efforts.",
+    "Find opportunities to get involved and volunteer.",
+  ];
+
   return (
     <div className="bg-gradient-to-b from-white to-gray-50 min-h-screen py-16 px-6 md:px-20">
       {/* Page Header */}
@@ -30,7 +49,10 @@ const Community = () => {
             <button className="px-4 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition">
               Upload Story
             </button>
-            <button className="px-4 py-2 bg-gray-100 text-emerald-700 rounded-xl hover:bg-gray-200 transition">
+            <button
+              className="px-4 py-2 bg-gray-100 text-emerald-700 rounded-xl hover:bg-gray-200 transition"
+              onClick={() => setShowLearnMore(true)}
+            >
               Learn More
             </button>
           </div>
@@ -50,7 +72,10 @@ const Community = () => {
             <button className="px-4 py-2 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition">
               Upload Image
             </button>
-            <button className="px-4 py-2 bg-gray-100 text-emerald-700 rounded-xl hover:bg-gray-200 transition">
+            <button
+              className="px-4 py-2 bg-gray-100 text-emerald-700 rounded-xl hover:bg-gray-200 transition"
+              onClick={() => setShowGuidelines(true)}
+            >
               View Guidelines
             </button>
           </div>
@@ -104,6 +129,50 @@ const Community = () => {
           Start Contributing
         </button>
       </div>
+
+      {/* Guidelines Modal */}
+      {showGuidelines && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-2xl max-w-lg w-full shadow-lg relative">
+            <h3 className="text-2xl font-bold text-emerald-700 mb-4">
+              Upload Guidelines
+            </h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              {guidelines.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold"
+              onClick={() => setShowGuidelines(false)}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Learn More Modal */}
+      {showLearnMore && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-2xl max-w-lg w-full shadow-lg relative">
+            <h3 className="text-2xl font-bold text-emerald-700 mb-4">
+              Learn More
+            </h3>
+            <ul className="list-disc list-inside text-gray-700 space-y-2">
+              {learnMoreContent.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl font-bold"
+              onClick={() => setShowLearnMore(false)}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
