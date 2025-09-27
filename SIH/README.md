@@ -25,26 +25,6 @@ Explore Sikkim’s monasteries digitally with immersive 360° tours, cultural ar
 
 ---
 
-## Setup
-
-1. **Clone the repository**
-
-git clone https://github.com/VishnuVardhanReddy-11/SIH
-cd SIH
-Install dependencies
-
-## 2. **Install dependencies**
-
-npm install
-
-## 3. **Run the development server**
-
-npm run dev
-
-## 4. **Open in browser**
-
-Open http://localhost:5173 in your browser.
-
 Folder Structure
 
 frontend/
@@ -59,3 +39,25 @@ frontend/
 ├─ package.json
 ├─ vite.config.js
 └─ README.md
+
+---
+
+## Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/VishnuVardhanReddy-11/SIH
+cd SIH
+
+** 2. Install dependencies**
+
+npm install
+
+** 3. Run the development server**
+
+npm run dev
+
+** 4. Open in browser**
+
+Open http://localhost:5173 in your browser.
+
