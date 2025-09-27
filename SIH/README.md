@@ -29,24 +29,24 @@ Explore Sikkim’s monasteries digitally with immersive 360° tours, cultural ar
 
 1. **Clone the repository**
 
-```bash
 git clone https://github.com/VishnuVardhanReddy-11/SIH
 cd SIH
 Install dependencies
 
-bash
-Copy code
-npm install
-Run the development server
+## 2. **Install dependencies**
 
-bash
-Copy code
+npm install
+
+## 3. **Run the development server**
+
 npm run dev
+
+## 4. **Open in browser**
+
 Open http://localhost:5173 in your browser.
 
 Folder Structure
-csharp
-Copy code
+
 frontend/
 ├─ node_modules/
 ├─ public/          # Images, icons, static assets
