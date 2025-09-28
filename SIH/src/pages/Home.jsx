@@ -22,6 +22,9 @@ const ReviewCard = ({ img, name, text }) => (
   </div>
 );
 
+
+
+
 const Home = () => {
   const features = [
     { icon: "🌄", title: "Virtual Tours", description: "Walk through monastery interiors, prayer halls, and sacred relic rooms in stunning 360° panoramas." },
@@ -57,6 +60,26 @@ const Home = () => {
     }, 1500);
     return () => clearInterval(interval);
   }, []);
+
+  const [email, setEmail] = useState("");
+const [message, setMessage] = useState("");
+
+const handleSubscribe = async () => {
+  if (!email) return setMessage("Please enter a valid email");
+
+  try {
+    const res = await fetch("http://localhost:5000/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    setMessage(data.message); // show success/failure message
+    setEmail(""); // clear input
+  } catch (err) {
+    setMessage("Something went wrong. Try again!");
+  }
+};
 
   return (
     <div className="bg-gradient-to-b from-indigo-50 via-white to-white min-h-screen">
@@ -244,14 +267,22 @@ const Home = () => {
     📧
   </span>
   <input
-    type="email"
-    placeholder="Enter your email"
-    className="pl-12 pr-4 py-3 w-full rounded-2xl bg-white/10 text-white placeholder:text-white border border-white/30 focus:bg-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none shadow-md transition-all duration-300"
-  />
+  type="email"
+  placeholder="Enter your email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="pl-12 pr-4 py-3 w-full rounded-2xl bg-white/10 text-white placeholder:text-white border border-white/30 focus:bg-white/20 focus:ring-2 focus:ring-indigo-400 focus:outline-none shadow-md transition-all duration-300"
+/>
+
     </div>
-    <button className="bg-white text-indigo-700 px-8 py-3 rounded-2xl font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300">
-      Subscribe
-    </button>
+    <button
+  onClick={handleSubscribe}
+  className="bg-white text-indigo-700 px-8 py-3 rounded-2xl font-semibold shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+>
+  Subscribe
+</button>
+{message && <p className="mt-2 text-white">{message}</p>}
+
   </div>
 
   {/* Small note */}
